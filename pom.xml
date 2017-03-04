@@ -97,9 +97,6 @@
                 <artifactId>lint-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <artifactId>maven-gpg-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <artifactId>maven-release-plugin</artifactId>
             </plugin>
         </plugins>
@@ -197,6 +194,23 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>sign.gpg</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>local-nexus</id>
             <activation>
