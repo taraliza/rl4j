@@ -57,6 +57,7 @@ public class SimpleToy implements MDP<SimpleToyState, Integer, DiscreteSpace> {
     }
 
     public SimpleToyState reset() {
+        System.out.println("In SimpleToyState Reset!! Tara test");
         if (fetchable != null)
             printTest(maxStep);
 
